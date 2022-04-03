@@ -1,0 +1,260 @@
+/**=========================================
+
+Project:    Project Name
+Company Name: Md Abdul Rakib
+Version:    2.0.0
+Author Name: Md. Abdul Rakib
+Primary use:    Project Type
+===========================================**/
+
+
+/*===========Base CSS======*/
+
+body {
+  font-family: 'Nunito';
+  font-size: 15px;
+  color: #999;
+  font-weight: 400;
+  margin: 0;
+}
+
+img {
+  max-height: auto;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #172844;
+}
+
+p {
+  color: #9299A6;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+
+.flipbox-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.flipbox-wrapper * {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.flipbox-inner {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 110%;
+  position: relative;
+  height: auto;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition-property: none;
+  transition-property: none;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.flipbox-inner-style {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flipbox-front,
+.flipbox-back {
+  background: #50322f;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  padding-bottom: 110%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: inherit;
+  transition-duration: inherit;
+}
+
+.flipbox-back {
+  z-index: 2;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 4px 4px 11px 2px rgb(209, 205, 209);
+}
+
+.flip-style-one .flipbox-front {
+  background: #50322f;
+}
+
+.flip-style-two .flipbox-front {
+  background: #395b8e;
+}
+
+.flip-style-three .flipbox-front {
+  background: #a0762c;
+}
+
+
+.flipbox-front-text {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.flipbox-img {
+  max-width: 100%;
+}
+
+.flipbox-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.flipbox-front-heading,
+h3.flipbox-back-heading {
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+h3.flipbox-back-heading {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p.flipbox-back-para {
+  color: #333;
+  font-size: 18px;
+}
+
+.flipbox-back-text {
+  padding: 40px 30px;
+}
+
+
+
+.easing_easeInOutExpo * {
+  -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+
+.easing_easeInOutCirc * {
+  -webkit-transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.easing_easeOutBack * {
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.flip-style-one .flipbox-front {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.flip-style-one .flipbox-back {
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.flipbox-wrapper:hover .flip-style-one .flipbox-front {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  z-index: -1;
+}
+
+.flipbox-wrapper:hover .flip-style-one .flipbox-back {
+  z-index: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.flip-style-three .flipbox-front {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.flip-style-three .flipbox-back {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.flipbox-wrapper:hover .flip-style-three .flipbox-front {
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+  z-index: -1;
+}
+
+.flipbox-wrapper:hover .flip-style-three .flipbox-back {
+  z-index: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+
+.flip-style-two .flipbox-front {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.flip-style-two .flipbox-back {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.flipbox-wrapper:hover .flip-style-two .flipbox-front {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: -1;
+}
+
+.flipbox-wrapper:hover .flip-style-two .flipbox-back {
+  z-index: 1;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
