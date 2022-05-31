@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap");
+:root {
+    --bg: #222222;
+    --text-clr: #9b9b9b;
+    --input-bg: #eef4ff;
+    --label-clr: salmon;
+}
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #222222;
+    padding: 100px 0px;
+}
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+    padding: 0px 30px;
+}
+hr {
+    border-color: gray;
+    margin-bottom: 30px;
+}
+input,
+textarea {
+    font: inherit;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.form-group:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.column-half {
+    display: flex;
+    justify-content: space-between;
+}
+.column-half > * {
+    flex: 1;
+}
+.form-group-label {
+    position: relative;
+    width: 100%;
+}
+.form-group-label:not(:last-child) {
+    margin-right: 30px;
+}
+.input-field,
+.textarea-field {
+    border-radius: 4px;
+    display: block;
+    padding: 15px;
+    height: 48px;
+    position: relative;
+    width: 100%;
+    color: salmon;
+    box-shadow: none;
+}
+.textarea-field {
+    height: 100px;
+}
+
+/* STYLE ONE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.styleOne .form-group-label {
+    color: salmon;
+    border: 1px solid salmon;
+    border-radius: 4px;
+}
+.styleOne .input-field::placeholder {
+    color: transparent;
+}
+.styleOne .input-label {
+    padding: 0px 5px;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    background-color: #222222;
+}
+
+.styleOne .input-field:placeholder-shown + .input-label {
+    top: 50%;
+    font-size: 16px;
+}
+
+.styleOne .input-field.textarea:placeholder-shown + .input-label {
+    top: 25px;
+}
+.styleOne .input-field:focus + .input-label {
+    top: 0px;
+}
+
+/* STYLE TWO ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.styleTwo .form-group-label {
+    color: salmon;
+    border-bottom: 1px solid salmon;
+    border-radius: 0px;
+}
+.styleTwo .input-field {
+    padding: 0px;
+}
+.styleTwo .input-field::placeholder {
+    color: transparent;
+}
+.styleTwo .input-label {
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    background-color: #222222;
+}
+
+.styleTwo .input-field:placeholder-shown + .input-label {
+    top: 50%;
+    font-size: 16px;
+}
+.styleTwo .input-field:focus + .input-label {
+    top: 0;
+    font-size: 14px;
+}
+
+/* STYLE Three ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.styleThree .input-field {
+    padding: 0px;
+    color: salmon;
+    border-bottom: 1px solid salmon;
+    border-radius: 0px;
+    position: relative;
+    padding: 30px 15px 15px;
+    font-size: 14px;
+    height: 60px;
+}
+.styleThree .input-field::placeholder {
+    color: transparent;
+}
+.styleThree .input-label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.styleThree .input-field:placeholder-shown + .input-label {
+    top: 50%;
+    font-size: 16px;
+}
+.styleThree .input-field:focus {
+    background: rgba(255, 255, 244, 0.05);
+    outline: none;
+}
+.styleThree .input-field:focus + .input-label {
+    top: 15px;
+    font-size: 14px;
+}
+
+.styleThree .bg-focus {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.1s;
+    background: rgba(255, 255, 244, 0.05);
+    transform: scaleX(1);
+    z-index: -1;
+
+    transform-origin: center;
+}
+.styleThree .input-field:placeholder-shown ~ .bg-focus {
+    transform: scaleX(0);
+}
+.styleThree .input-field:focus ~ .bg-focus {
+    transform: scaleX(1);
+    transition: all 0.1s ease;
+}
+
+/* STYLE Three ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.styleFour .input-field {
+    color: salmon;
+    border: 1px solid salmon;
+    border-radius: 0px 4px 4px 0px;
+    position: relative;
+    font-size: 14px;
+    height: 46px;
+    transition: all 0.3s;
+    color: #134a46;
+}
+
+.styleFour .input-label {
+    border: 1px solid salmon;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 244, 0.05);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+.styleFour .form-group-label.left-label .input-label,
+.styleFour .form-group-label.right-label .input-field {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.styleFour .form-group-label.right-label .input-label,
+.styleFour .form-group-label.left-label .input-field {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.styleFour .form-group-label.left-label .input-label {
+    border-right: 0px;
+}
+.styleFour .form-group-label.right-label .input-label {
+    border-left: 0px;
+}
+
+.styleFour .form-group-label:focus-within .input-label {
+    background-color: #134a46;
+    color: #fff;
+    border-color: #134a46;
+}
+.styleFour .form-group-label:focus-within .input-field {
+    border-color: #134a46;
+}
+
+/* STYLE FIve ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.styleFive .form-group-label {
+    color: salmon;
+    border: 1px solid salmon;
+    border-radius: 4px;
+}
+.styleFive .input-field::placeholder {
+    color: transparent;
+}
+.styleFive .input-label {
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    left: 0px;
+    top: -20px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    background-color: #222222;
+}
+.styleFive .input-label:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 50%;
+    margin-left: -3px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(122, 184, 147, 0);
+    transition: all 0.3s ease-in-out;
+}
+.styleFive .input-field:not(:placeholder-shown) + .input-label {
+    background-color: #134a46;
+    left: 0px;
+}
+
+.styleFive .input-field:placeholder-shown + .input-label {
+    top: 50%;
+    left: 10px;
+    font-size: 16px;
+}
+.styleFive .input-field:focus + .input-label {
+    top: -20px;
+    left: 0px;
+    font-size: 12px;
+    background-color: #134a46;
+}
+.styleFive .input-field:not(:placeholder-shown) + .input-label:after {
+    border-top: 4px solid #134a46;
+}
+.styleFive .input-field:focus + .input-label:after {
+    border-top: 6px solid #134a46;
+}
+
+/* STYLE SSIX ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.styleSix .form-group-label {
+    color: salmon;
+    border-bottom: 1px solid salmon;
+    border-radius: 0px;
+}
+.styleSix .input-field {
+    padding: 0px;
+}
+.styleSix .input-field::placeholder {
+    color: transparent;
+}
+.styleSix .input-label {
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    background-color: #222222;
+}
+
+.styleSix .input-field:placeholder-shown + .input-label {
+    top: 50%;
+    font-size: 16px;
+}
+.styleSix .input-field:focus + .input-label {
+    top: 0;
+    font-size: 14px;
+}
+.styleSix .input-bar {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    background: #134a46;
+    transition: all 0.3s;
+    transform-origin: left;
+}
+.styleSix .input-field:focus ~ .input-bar {
+    transform: scaleX(1);
+}
+
+/* STYLE TEXTAREA ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.styleTextarea .form-group-label {
+    color: salmon;
+    border: 1px solid salmon;
+    border-radius: 4px;
+}
+.styleTextarea .textarea-field::placeholder {
+    color: transparent;
+}
+.styleTextarea .input-label {
+    padding: 0px 5px;
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: salmon;
+    z-index: 1;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    background-color: #222222;
+}
+
+.styleTextarea .textarea-field:placeholder-shown ~ .input-label {
+    top: 25px;
+    font-size: 16px;
+}
+
+.styleTextarea .textarea-field:focus ~ .input-label,
+.styleTextarea .textarea-field:not(:placeholder-shown) ~ .input-label {
+    top: 0px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+    .column-half {
+        flex-direction: column;
+    }
+
+    .form-group-label {
+        position: relative;
+    }
+    .form-group-label:not(:last-child) {
+        margin-bottom: 30px;
+        margin-right: 0px;
+    }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Custom dropdown</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                min-height: 100vh;
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 20px;
+                background-color: #fff;
+                color: #606060;
+                font-weight: 400;
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            /* CUSTOM SELECT DROPDOWN CSS */
+            .select__dropdowns {
+                position: relative;
+                width: 320px;
+                border: 1px solid #dfe1e6;
+                border-radius: 4px;
+                background-color: #fff;
+            }
+            .dropdown__btn,
+            .dropdown__option {
+                position: relative;
+                width: 100%;
+                cursor: pointer;
+                position: relative;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                background: #fff;
+                color: #1d1d1f;
+                font-size: 16px;
+                padding: 10px;
+                font-weight: 400;
+                transition: all 0.3s ease-in-out;
+            }
+            .dropdown__btn:after {
+                content: "";
+                position: absolute;
+                top: 45%;
+                right: 10px;
+                width: 10px;
+                height: 10px;
+                -webkit-transform: translateY(-50%) rotate(45deg);
+                transform: translateY(-50%) rotate(45deg);
+                border-right: 2.5px solid #158bde;
+                border-bottom: 2.5px solid #158bde;
+                transition: 0.2s ease;
+            }
+            .dropdown__btn.toggle:after {
+                top: 50%;
+                transform: translateY(-50%) rotate(-135deg);
+            }
+            .select__dropdown {
+                position: absolute;
+                left: 0;
+                top: 100%;
+                width: 100%;
+                overflow: hidden;
+                border: 1px solid #dfe1e6;
+                border-radius: 4px;
+                background-color: #fff;
+                -webkit-transform: scale(1, 0);
+                transform: scale(1, 0);
+                -webkit-transform-origin: top center;
+                transform-origin: top center;
+                visibility: hidden;
+                transition: all 0.3s ease-in-out;
+            }
+            .select__dropdowns .select__dropdown.toggle {
+                visibility: visible;
+                -webkit-transform: scale(1, 1);
+                transform: scale(1, 1);
+            }
+
+            .dropdown__option:hover {
+                background-color: #e3f1fb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="select__dropdowns">
+            <div class="dropdown__btn" data-type="one">One</div>
+            <div class="select__dropdown">
+                <div class="dropdown__option" data-type="one">This week (25 April - 1 May)</div>
+                <div class="dropdown__option" data-type="two">two</div>
+                <div class="dropdown__option" data-type="three">three</div>
+            </div>
+        </div>
+
+        <script>
+            // **********CUSTOM DROPDOWN
+            const selectDropDownBtns = document.querySelectorAll(".dropdown__btn");
+            const selectDropDownOptions = document.querySelectorAll(".dropdown__option");
+            let index = 1;
+
+            selectDropDownBtns.forEach(function (a) {
+                a.addEventListener("click", function (e) {
+                    const next = e.target.nextElementSibling;
+                    e.target.classList.toggle("toggle");
+                    next.classList.toggle("toggle");
+                    next.style.zIndex = index++;
+                    console.log(next);
+                });
+            });
+
+            selectDropDownOptions.forEach(function (option) {
+                option.addEventListener("click", function (e) {
+                    e.target.parentElement.classList.remove("toggle");
+                    const parent = e.target.closest(".select__dropdowns").children[0];
+                    parent.setAttribute("data-type", e.target.getAttribute("data-type"));
+                    parent.innerText = e.target.innerText;
+                });
+            });
+        </script>
+    </body>
+</html>
